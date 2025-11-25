@@ -2,7 +2,7 @@
   "name": "Game",
   "private": true,
   "scripts": {
-    "tsc": "tsc --workspaces",
+    "tsc": "pnpm -r tsc",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
     "test": "pnpm -r test",

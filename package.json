@@ -5,7 +5,9 @@
     "tsc": "tsc --workspaces",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
-    "build": "build --workspace=app"
+    "test": "pnpm -r test",
+    "build": "build --workspace=app",
+    "prepare": "husky"
   },
   "workspaces": [
     "app",
@@ -20,6 +22,7 @@
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-prettier": "catalog:",
+    "husky": "^9.1.7",
     "prettier": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"

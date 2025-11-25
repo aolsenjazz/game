@@ -2,10 +2,10 @@
   "name": "Game",
   "private": true,
   "scripts": {
-    "tsc": "npm run tsc --workspaces",
-    "lint": "npm run lint --workspaces",
-    "lint:fix": "npm run lint:fix --workspaces",
-    "build": "npm run build --workspace=web"
+    "tsc": "tsc --workspaces",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "build": "build --workspace=app"
   },
   "workspaces": [
     "app",
@@ -13,15 +13,15 @@
     "services/annotation"
   ],
   "devDependencies": {
-    "typescript": "5.4",
-    "typescript-eslint": "^8.18.2",
-    "prettier": "^3.1.1",
-    "@typescript-eslint/eslint-plugin": "^8.23.0",
-    "@typescript-eslint/parser": "^8.23.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.1",
-    "@eslint/js": "^9.17.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "@eslint/js": "catalog:",
+    "@ianvs/prettier-plugin-sort-imports": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

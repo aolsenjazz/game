@@ -1,36 +1,26 @@
 {
-  "name": "@vault/core",
+  "name": "@game/core",
   "version": "1.0.0",
-  "description": "Ikigailabs core services, util function, state management",
-  "author": "IkigaiLabs Inc.",
-  "sideEffects": false,
+  "description": "The Game monorepo",
+  "author": "Alexander Olsen",
   "exports": {
-    ".": "./src/index.ts",
-    "./logger": "./src/logger/index.ts",
-    "./features": "./src/features/index.ts",
-    "./types": "./src/types/index.ts",
-    "./api": "./src/api/index.ts",
-    "./middleware": "./src/middleware/index.ts",
-    "./service": "./src/service/index.ts"
+    "./types": "./src/types/index.ts"
   },
   "scripts": {
     "tsc": "tsc",
-    "lint": "eslint ./src -c config/eslint.config.mjs",
-    "lint:fix": "eslint ./src --fix -c config/eslint.config.mjs"
+    "lint": "eslint ./src -c ../eslint.config.mjs",
+    "lint:fix": "eslint ./src --fix -c ../eslint.config.mjs"
   },
   "devDependencies": {
-    "@types/react": "^18.3.1",
-    "nodemon": "^3.1.9",
-    "prettier": "^3.1.1",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.20.3",
-  },
-  "peerDependencies": {
-    "@reduxjs/toolkit": "^2.8.2"
-  },
-  "prettier": "./config/prettier.config.mjs",
-  "dependencies": {
-    "async-mutex": "^0.5.0",
-    "axios": "^1.11.0"
+    "@eslint/js": "catalog:",
+    "@ianvs/prettier-plugin-sort-imports": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

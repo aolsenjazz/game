@@ -12,7 +12,7 @@
     "composite": true,
     "noEmit": true,
 
-    // // make the compiler more strict
+    // make the compiler more strict
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },

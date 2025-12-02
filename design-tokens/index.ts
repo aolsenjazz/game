@@ -46,41 +46,6 @@ const platformsDictionary = new StyleDictionary(
           },
         ],
       },
-      ios: {
-        transformGroup: 'tokens-studio',
-        transforms: ['name/kebab'], // is this actually needed for ios?
-        buildPath: 'build/ios',
-        files: [
-          {
-            destination: 'tokens.plist',
-            format: 'ios/plist',
-          },
-        ],
-      },
-      android: {
-        transformGroup: 'tokens-studio',
-        transforms: ['name/kebab'], // is this actually needed for android?
-        buildPath: 'build/android',
-        files: [
-          {
-            destination: 'colors.xml',
-            format: 'android/colors',
-          },
-          {
-            destination: 'dimens.xml',
-            format: 'android/dimens',
-          },
-          {
-            destination: 'fontDimens.xml',
-            format: 'android/fontDimens',
-          },
-          {
-            destination: 'integers.xml',
-            format: 'android/integers',
-          },
-          { destination: 'string.xml', format: 'android/strings' },
-        ],
-      },
     },
   },
   {
@@ -105,3 +70,39 @@ const tailwindDictionary = new StyleDictionary(
   await platformsDictionary.cleanAllPlatforms();
   await platformsDictionary.buildAllPlatforms();
 })();
+
+// android: {
+//   transformGroup: 'tokens-studio',
+//   transforms: ['name/kebab'], // is this actually needed for android?
+//   buildPath: 'build/android',
+//   files: [
+//     {
+//       destination: 'colors.xml',
+//       format: 'android/colors',
+//     },
+//     {
+//       destination: 'dimens.xml',
+//       format: 'android/dimens',
+//     },
+//     {
+//       destination: 'fontDimens.xml',
+//       format: 'android/fontDimens',
+//     },
+//     {
+//       destination: 'integers.xml',
+//       format: 'android/integers',
+//     },
+//     { destination: 'string.xml', format: 'android/strings' },
+//   ],
+// },
+// ios: {
+//         transformGroup: 'tokens-studio',
+//         transforms: ['name/kebab'], // is this actually needed for ios?
+//         buildPath: 'build/ios',
+//         files: [
+//           {
+//             destination: 'tokens.plist',
+//             format: 'ios/plist',
+//           },
+//         ],
+//       },

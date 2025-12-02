@@ -45,3 +45,4 @@ jobs:
         with:
           commit_message: Auto-commit updated styles
           commit_user_name: Design Token Action Bot
+          commit_options: '--no-verify'

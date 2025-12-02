@@ -1,6 +1,7 @@
 packages:
   - app
   - core
+  - design-tokens
   - services/*
 
 catalog:

@@ -13,6 +13,7 @@
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^2.0.2",
+    "sd-tailwindcss-transformer": "^2.2.1",
     "style-dictionary": "^5.1.1",
     "tsx": "^4.20.6"
   }

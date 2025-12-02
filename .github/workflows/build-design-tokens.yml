@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - 'design-tokens/**'
+      - '.github/workflows/build-design-tokens.yml'
   pull_request:
     paths:
       - 'design-tokens/**'
+      - '.github/workflows/build-design-tokens.yml'
 
 jobs:
   build-design-tokens:

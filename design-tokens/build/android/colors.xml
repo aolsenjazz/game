@@ -93,7 +93,7 @@
   <color name="ref-color-pale-sky-900">#383a42</color>
   <color name="ref-color-pale-sky-950">#25272c</color>
   <color name="sem-color-feedback-success">#5ccf2d</color>
-  <color name="sem-color-feedback-on-success">#f7f8f8</color>
+  <color name="sem-color-feedback-on-success">#f5f5f6</color>
   <color name="sem-color-feedback-info">#338dc4</color>
   <color name="sem-color-feedback-on-info">#f3f7fc</color>
   <color name="sem-color-feedback-warning">#fcb03b</color>

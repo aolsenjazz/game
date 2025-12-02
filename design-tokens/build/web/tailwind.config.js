@@ -367,7 +367,7 @@ module.exports = {
         color: {
           feedback: {
             success: "#5ccf2d",
-            onSuccess: "#f7f8f8",
+            onSuccess: "#f5f5f6",
             info: "#338dc4",
             onInfo: "#f3f7fc",
             warning: "#fcb03b",

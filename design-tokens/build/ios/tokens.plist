@@ -1202,9 +1202,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.0196078431372549</real>
+      <real>0.027450980392156862</real>
       <key>b</key>
-      <real>NaN</real>
+      <real>0.011764705882352941</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1213,9 +1213,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.00392156862745098</real>
       <key>b</key>
-      <real>0.0196078431372549</real>
+      <real>0</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1224,9 +1224,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.011764705882352941</real>
+      <real>0.0196078431372549</real>
       <key>b</key>
-      <real>0.011764705882352941</real>
+      <real>0.03529411764705882</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1235,7 +1235,7 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.00392156862745098</real>
       <key>b</key>
       <real>0.011764705882352941</real>
       <key>a</key>
@@ -1279,7 +1279,7 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>b</key>
       <real>NaN</real>
       <key>a</key>
@@ -1301,7 +1301,7 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>b</key>
       <real>NaN</real>
       <key>a</key>
@@ -1312,9 +1312,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.0196078431372549</real>
-      <key>b</key>
       <real>0.03529411764705882</real>
+      <key>b</key>
+      <real>0.011764705882352941</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1323,9 +1323,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.011764705882352941</real>
+      <real>0.0196078431372549</real>
       <key>b</key>
-      <real>0.011764705882352941</real>
+      <real>0.03529411764705882</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1334,9 +1334,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.00784313725490196</real>
+      <real>0.011764705882352941</real>
       <key>b</key>
-      <real>0.01568627450980392</real>
+      <real>0.011764705882352941</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1345,9 +1345,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.00784313725490196</real>
       <key>b</key>
-      <real>0.027450980392156862</real>
+      <real>0.0196078431372549</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1356,9 +1356,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.03137254901960784</real>
       <key>b</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1367,9 +1367,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.027450980392156862</real>
+      <real>NaN</real>
       <key>b</key>
-      <real>0.00392156862745098</real>
+      <real>NaN</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1378,7 +1378,7 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.01568627450980392</real>
+      <real>NaN</real>
       <key>b</key>
       <real>NaN</real>
       <key>a</key>
@@ -1389,9 +1389,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.00784313725490196</real>
       <key>b</key>
-      <real>0.027450980392156862</real>
+      <real>0.0196078431372549</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1400,9 +1400,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.03137254901960784</real>
       <key>b</key>
-      <real>0.023529411764705882</real>
+      <real>NaN</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1411,9 +1411,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.023529411764705882</real>
-      <key>b</key>
       <real>NaN</real>
+      <key>b</key>
+      <real>0.023529411764705882</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1422,9 +1422,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.01568627450980392</real>
-      <key>b</key>
       <real>NaN</real>
+      <key>b</key>
+      <real>0.03137254901960784</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1433,9 +1433,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.00784313725490196</real>
       <key>b</key>
-      <real>0.027450980392156862</real>
+      <real>0.0196078431372549</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1444,9 +1444,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.00784313725490196</real>
       <key>b</key>
-      <real>0.027450980392156862</real>
+      <real>0.023529411764705882</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1455,9 +1455,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>b</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1466,9 +1466,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>b</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1477,9 +1477,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.01568627450980392</real>
       <key>b</key>
-      <real>0.03137254901960784</real>
+      <real>NaN</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1488,9 +1488,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.01568627450980392</real>
+      <real>NaN</real>
       <key>b</key>
-      <real>0.01568627450980392</real>
+      <real>0.027450980392156862</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1499,9 +1499,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.023529411764705882</real>
-      <key>b</key>
       <real>NaN</real>
+      <key>b</key>
+      <real>0.03137254901960784</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1510,9 +1510,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>0.03137254901960784</real>
-      <key>b</key>
       <real>NaN</real>
+      <key>b</key>
+      <real>0.023529411764705882</real>
       <key>a</key>
       <real>1</real>
     </dict>
@@ -1521,9 +1521,9 @@
       <key>r</key>
       <real>NaN</real>
       <key>g</key>
-      <real>NaN</real>
+      <real>0.03137254901960784</real>
       <key>b</key>
-      <real>0.027450980392156862</real>
+      <real>NaN</real>
       <key>a</key>
       <real>1</real>
     </dict>

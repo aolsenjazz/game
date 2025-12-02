@@ -366,51 +366,51 @@ module.exports = {
         },
         color: {
           feedback: {
-            success: "#5ccf2d",
-            onSuccess: "#f5f5f6",
-            info: "#338dc4",
-            onInfo: "#f3f7fc",
+            success: "#73d447",
+            onSuccess: "#102a09",
+            info: "#59a7d7",
+            onInfo: "#132a3e",
             warning: "#fcb03b",
             onWarning: "#431d07",
-            error: "#ff3232",
-            onError: "#fff1f1",
-            danger: "#ef1313",
-            onDanger: "#fff1f1"
+            error: "#ff6363",
+            onError: "#4b0404",
+            danger: "#ff3232",
+            onDanger: "#4b0404"
           },
           interactive: {
             primary: {
-              muted: "#59a7d7",
-              default: "#338dc4",
-              emphasis: "#2470a5"
+              muted: "#93c5e6",
+              default: "#59a7d7",
+              emphasis: "#338dc4"
             },
-            onPrimary: "#f7f8f8",
+            onPrimary: "#25272c",
             secondary: {
-              muted: "#adadb3",
-              default: "#71717a",
-              emphasis: "#4d4c52"
+              muted: "#84848c",
+              default: "#adadb3",
+              emphasis: "#cfcfd2"
             },
-            onSecondary: "#f7f8f8",
+            onSecondary: "#25272c",
             tertiary: {
-              muted: "#b6bac3",
-              default: "#6b7280",
-              emphasis: "#4a4e5a"
+              muted: "#8e95a2",
+              default: "#b6bac3",
+              emphasis: "#d8dbdf"
             },
-            onTertiary: "#f7f8f8"
+            onTertiary: "#25272c"
           },
           canvas: {
-            primary: "#f7f8f8",
-            secondary: "#edeef1"
+            primary: "#262322",
+            secondary: "#443f3f"
           },
           container: {
-            primary: "#edeef1",
-            secondary: "#d8dbdf"
+            primary: "#443f3f",
+            secondary: "#4d4846"
           },
           content: {
-            primary: "#443f3f",
-            secondary: "#6d6561",
-            tertiary: "#8e8781",
-            disabled: "#a7a29d",
-            placeholder: "#8e8781"
+            primary: "#f7f8f8",
+            secondary: "#d8dbdf",
+            tertiary: "#b6bac3",
+            disabled: "#8e95a2",
+            placeholder: "#8e95a2"
           }
         },
         modifiers: {

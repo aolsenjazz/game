@@ -80,9 +80,6 @@ importers:
       '@game/core':
         specifier: workspace:^
         version: link:../core
-      '@game/design-tokens':
-        specifier: workspace:^
-        version: link:../design-tokens
       '@reduxjs/toolkit':
         specifier: ^2.11.0
         version: 2.11.0(react-redux@9.2.0(@types/react@19.2.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
@@ -105,6 +102,9 @@ importers:
       '@eslint/js':
         specifier: 'catalog:'
         version: 9.39.1
+      '@game/design-tokens':
+        specifier: workspace:^
+        version: link:../design-tokens
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 'catalog:'
         version: 4.7.0(prettier@3.6.2)

@@ -1,36 +1,61 @@
+import fs from 'fs';
+import path from 'path';
 import { register } from '@tokens-studio/sd-transforms';
-import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
 import StyleDictionary from 'style-dictionary';
 
-// will register them on StyleDictionary object
-// that is installed as a dependency of this package.
+import { splitTokenSets } from './split';
+
+// Register the Tokens Studio transforms
 register(StyleDictionary, {
   excludeParentKeys: true,
 });
 
 /**
- * Config to be consumed by all StyleDictionary instances
+ * Shared Style Dictionary config used for each theme build.
  */
-const commonConfig = {
+const commonSdConfig = {
   type: 'all',
-  source: ['tokens.json'],
-  preprocessors: ['tokens-studio'], // <-- since 0.16.0 this must be explicit
+  preprocessors: ['tokens-studio'], // Required for sd-transforms >= 0.16.0
 };
 
 /**
- * Build for non-Tailwind platforms
+ * Temporary working folder.
+ * All split token-set files go here.
  */
-const platformsDictionary = new StyleDictionary(
-  {
-    ...commonConfig,
+const BUILD_DIR = path.resolve('.build');
+
+/**
+ * Remove build directory before starting.
+ */
+function cleanBuildDir() {
+  if (fs.existsSync(BUILD_DIR)) {
+    fs.rmSync(BUILD_DIR, { recursive: true, force: true });
+  }
+  fs.mkdirSync(BUILD_DIR, { recursive: true });
+}
+
+/**
+ * Build one split JSON file with Style Dictionary
+ */
+async function buildTheme(sourceFilePath: string, isBrandLayer: boolean) {
+  const fName = path.basename(sourceFilePath);
+  const cssOptions = isBrandLayer
+    ? {}
+    : {
+        selector: path.parse(fName).name,
+      };
+
+  const sdJsonConfig = {
+    ...commonSdConfig,
+    source: [sourceFilePath],
     platforms: {
       json: {
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
-        buildPath: 'build/json/',
+        buildPath: 'dist/json/',
         files: [
           {
-            destination: 'tokens.json',
+            destination: fName,
             format: 'json',
           },
         ],
@@ -38,71 +63,47 @@ const platformsDictionary = new StyleDictionary(
       css: {
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
-        buildPath: 'build/css/',
+        buildPath: 'dist/css/',
         files: [
           {
-            destination: 'variables.css',
+            destination: fName.replace('.json', '.css'),
             format: 'css/variables',
+            options: cssOptions,
           },
         ],
       },
     },
-  },
-  {
+  };
+
+  const sdPlatforms = new StyleDictionary(sdJsonConfig, {
     verbosity: 'verbose',
+  });
+
+  await sdPlatforms.cleanAllPlatforms();
+  await sdPlatforms.buildAllPlatforms();
+}
+
+async function main() {
+  cleanBuildDir();
+
+  const { writtenBrandFiles, writtenThemeFiles } = splitTokenSets(
+    'tokens.json',
+    '.build'
+  );
+
+  for (const file of writtenBrandFiles) {
+    await buildTheme(file, true);
   }
-);
 
-/**
- * Build for Tailwind
- */
-const tailwindDictionary = new StyleDictionary(
-  makeSdTailwindConfig(commonConfig),
-  {
-    verbosity: 'verbose',
+  for (const file of writtenThemeFiles) {
+    await buildTheme(file, false);
   }
-);
 
-(async () => {
-  await tailwindDictionary.cleanAllPlatforms();
-  await tailwindDictionary.buildAllPlatforms();
+  fs.rmSync(BUILD_DIR, { recursive: true, force: true });
+}
 
-  await platformsDictionary.cleanAllPlatforms();
-  await platformsDictionary.buildAllPlatforms();
-})();
-
-// android: {
-//   transformGroup: 'tokens-studio',
-//   transforms: ['name/kebab'], // is this actually needed for android?
-//   buildPath: 'build/android',
-//   files: [
-//     {
-//       destination: 'colors.xml',
-//       format: 'android/colors',
-//     },
-//     {
-//       destination: 'dimens.xml',
-//       format: 'android/dimens',
-//     },
-//     {
-//       destination: 'fontDimens.xml',
-//       format: 'android/fontDimens',
-//     },
-//     {
-//       destination: 'integers.xml',
-//       format: 'android/integers',
-//     },
-//     { destination: 'string.xml', format: 'android/strings' },
-//   ],
-// },
-// ios: {
-//         transformGroup: 'tokens-studio',
-//         transforms: ['name/kebab'], // is this actually needed for ios?
-//         buildPath: 'build/ios',
-//         files: [
-//           {
-//             destination: 'tokens.plist',
-//             format: 'ios/plist',
-//           },
-//         ],
-//       },
+main().catch((err) => {
+  console.error('❌ Build failed:');
+  console.error(err);
+  process.exit(1);
+});

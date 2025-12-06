@@ -42,7 +42,7 @@ async function buildTheme(sourceFilePath: string, isBrandLayer: boolean) {
   const cssOptions = isBrandLayer
     ? {}
     : {
-        selector: path.parse(fName).name,
+        selector: '.' + path.parse(fName).name,
       };
 
   const sdJsonConfig = {

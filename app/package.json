@@ -45,5 +45,11 @@
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
     "vite": "^7.2.4"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
   }
 }

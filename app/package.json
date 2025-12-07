@@ -12,6 +12,9 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/ios": "^7.4.4",
     "@game/core": "workspace:^",
     "@reduxjs/toolkit": "^2.11.0",
     "react": "^18.3.1",
@@ -21,6 +24,7 @@
     "redux": "^5.0.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.4.4",
     "@eslint/js": "catalog:",
     "@game/design-tokens": "workspace:^",
     "@ianvs/prettier-plugin-sort-imports": "catalog:",

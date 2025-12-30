@@ -3,107 +3,84 @@ import path from 'path';
 import { register } from '@tokens-studio/sd-transforms';
 import StyleDictionary from 'style-dictionary';
 
-import { splitTokenSets } from './split';
+register(StyleDictionary);
 
-// Register the Tokens Studio transforms
-register(StyleDictionary, {
-  excludeParentKeys: true,
-});
-
-/**
- * Shared Style Dictionary config used for each theme build.
- */
-const commonSdConfig = {
-  type: 'all',
-  preprocessors: ['tokens-studio'], // Required for sd-transforms >= 0.16.0
-};
-
-/**
- * Temporary working folder.
- * All split token-set files go here.
- */
-const BUILD_DIR = path.resolve('.build');
-
-/**
- * Remove build directory before starting.
- */
-function cleanBuildDir() {
-  if (fs.existsSync(BUILD_DIR)) {
-    fs.rmSync(BUILD_DIR, { recursive: true, force: true });
-  }
-  fs.mkdirSync(BUILD_DIR, { recursive: true });
+function getBasename(sourceFilePath: string) {
+  return path.basename(sourceFilePath, '.json');
 }
 
-/**
- * Build one split JSON file with Style Dictionary
- */
-async function buildTheme(sourceFilePath: string, isBrandLayer: boolean) {
-  const fName = path.basename(sourceFilePath);
-  const cssOptions = isBrandLayer
-    ? {}
-    : {
-        selector: '.' + path.parse(fName).name,
-      };
-
-  const sdJsonConfig = {
-    ...commonSdConfig,
-    source: [sourceFilePath],
+function generateBaseDictionary() {
+  return new StyleDictionary({
+    source: ['tokens/ref.json', 'tokens/sem.json'],
+    preprocessors: ['tokens-studio'],
     platforms: {
-      json: {
-        transformGroup: 'tokens-studio',
-        transforms: ['name/kebab'],
-        buildPath: 'dist/json/',
-        files: [
-          {
-            destination: fName,
-            format: 'json',
-          },
-        ],
-      },
       css: {
         transformGroup: 'tokens-studio',
-        transforms: ['name/kebab'],
-        buildPath: 'dist/css/',
+        transforms: ['name/kebab', 'ts/resolveMath'],
+        buildPath: 'dist',
         files: [
           {
-            destination: fName.replace('.json', '.css'),
+            destination: `game.css`,
             format: 'css/variables',
-            options: cssOptions,
           },
         ],
       },
     },
-  };
+  });
+}
 
-  const sdPlatforms = new StyleDictionary(sdJsonConfig, {
-    verbosity: 'verbose',
+function generateThemeDictionaries() {
+  const tokenSetsRaw: { tokenSetOrder: string[] } = JSON.parse(
+    fs.readFileSync('tokens/$metadata.json', 'utf-8')
+  );
+  const { tokenSetOrder: tokenSets } = tokenSetsRaw;
+
+  const tokenSourceArrays = tokenSets
+    .filter((set) => set.includes('themes/'))
+    .map((themeSet) => {
+      return ['tokens/ref.json', 'tokens/sem.json', `tokens/${themeSet}.json`];
+    });
+
+  const tokenSetDictionaries = tokenSourceArrays.map((sourceArray) => {
+    const basename = getBasename(sourceArray[sourceArray.length - 1]);
+
+    return new StyleDictionary({
+      source: sourceArray,
+      preprocessors: ['tokens-studio'],
+      platforms: {
+        css: {
+          transformGroup: 'tokens-studio',
+          transforms: ['name/kebab', 'ts/resolveMath'],
+          buildPath: 'dist',
+          files: [
+            {
+              destination: `${basename}.css`,
+              format: 'css/variables',
+              options: {
+                selector: `.${basename}`,
+              },
+            },
+          ],
+        },
+      },
+    });
   });
 
-  await sdPlatforms.cleanAllPlatforms();
-  await sdPlatforms.buildAllPlatforms();
+  return tokenSetDictionaries;
 }
 
-async function main() {
-  cleanBuildDir();
+const run = async () => {
+  const baseDictionary = generateBaseDictionary();
+  const themeDictionaries = generateThemeDictionaries();
 
-  const { writtenBrandFiles, writtenThemeFiles } = splitTokenSets(
-    'tokens.json',
-    '.build'
+  const allDicts = [baseDictionary, ...themeDictionaries];
+
+  Promise.all(
+    allDicts.map(async (dict) => {
+      await dict.cleanAllPlatforms();
+      await dict.buildAllPlatforms();
+    })
   );
+};
 
-  for (const file of writtenBrandFiles) {
-    await buildTheme(file, true);
-  }
-
-  for (const file of writtenThemeFiles) {
-    await buildTheme(file, false);
-  }
-
-  fs.rmSync(BUILD_DIR, { recursive: true, force: true });
-}
-
-main().catch((err) => {
-  console.error('❌ Build failed:');
-  console.error(err);
-  process.exit(1);
-});
+run();

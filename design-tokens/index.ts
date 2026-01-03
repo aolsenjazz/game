@@ -20,7 +20,7 @@ function generateBaseDictionary() {
         buildPath: 'dist',
         files: [
           {
-            destination: `game.css`,
+            destination: `css/game.css`,
             format: 'css/variables',
           },
         ],
@@ -54,7 +54,7 @@ function generateThemeDictionaries() {
           buildPath: 'dist',
           files: [
             {
-              destination: `${basename}.css`,
+              destination: `css/${basename}.css`,
               format: 'css/variables',
               options: {
                 selector: `.${basename}`,

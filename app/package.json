@@ -12,6 +12,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.11.0",
     "@capacitor/android": "^8.0.0",
     "@capacitor/core": "^8.0.0",
     "@capacitor/ios": "^8.0.0",

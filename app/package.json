@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^8.0.0",
+    "@capawesome/cli": "^3.10.2",
     "@eslint/js": "catalog:",
     "@game/design-tokens": "workspace:^",
     "@ianvs/prettier-plugin-sort-imports": "catalog:",

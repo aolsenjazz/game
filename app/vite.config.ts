@@ -1,5 +1,6 @@
 import path from 'path';
 import svgr from '@svgr/rollup';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, mergeConfig } from 'vite';
 
@@ -10,7 +11,14 @@ const baseConfig = defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  plugins: [react(), svgr({ exportType: 'named' })],
+  plugins: [
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+    }),
+    react(),
+    svgr({ exportType: 'named' }),
+  ],
   build: {
     outDir: 'dist',
     rollupOptions: {
